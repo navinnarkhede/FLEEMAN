@@ -1,0 +1,6 @@
+@Fleeman_Dotnet_HostAddress = http://localhost:5058
+
+GET {{Fleeman_Dotnet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

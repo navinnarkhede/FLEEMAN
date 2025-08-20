@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Fleeman_Dotnet.props" />
+</Project>

@@ -1,0 +1,1597 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fleeman API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/AddOn": {
+      "get": {
+        "tags": [
+          "AddOn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/add_on_master"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/add_on_master"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/add_on_master"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AddOn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_on_master"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_on_master"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_on_master"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_on_master"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_on_master"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_on_master"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/AddOn/{id}": {
+      "get": {
+        "tags": [
+          "AddOn"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_on_master"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_on_master"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_on_master"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "AddOn"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_on_master"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_on_master"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_on_master"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AddOn"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Airport/airport": {
+      "get": {
+        "tags": [
+          "Airport"
+        ],
+        "parameters": [
+          {
+            "name": "airportCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Booking/details/{bookcar}": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "bookcar",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReturnCarMasterDetailsFromBooking"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReturnCarMasterDetailsFromBooking"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReturnCarMasterDetailsFromBooking"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cartypes": {
+      "get": {
+        "tags": [
+          "CarType"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/cartypes/by-hub/{hubId}": {
+      "get": {
+        "tags": [
+          "CarType"
+        ],
+        "parameters": [
+          {
+            "name": "hubId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/state/{state_id}": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "name": "state_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/city_master"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/city_master"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/city_master"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customer/addCustomer": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_master"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_master"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_master"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Customer/{email}": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/customer_master"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/customer_master"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/customer_master"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Email/sendInvoice": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceEmailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceEmailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/hub": {
+      "get": {
+        "tags": [
+          "Hub"
+        ],
+        "parameters": [
+          {
+            "name": "stateName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cityName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/State/State": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddOnDto": {
+        "type": "object",
+        "properties": {
+          "addOnName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addOnDailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateOnly": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dayOfWeek": {
+            "$ref": "#/components/schemas/DayOfWeek"
+          },
+          "dayOfYear": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "dayNumber": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DayOfWeek": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "InvoiceEmailDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "bookingId": {
+            "type": "string",
+            "nullable": true
+          },
+          "pickupDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "returnDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "carType": {
+            "type": "string",
+            "nullable": true
+          },
+          "dailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "addons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddOnDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ReturnCarMasterDetailsFromBooking": {
+        "type": "object",
+        "properties": {
+          "carName": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAvailable": {
+            "type": "boolean"
+          },
+          "mileage": {
+            "type": "number",
+            "format": "double"
+          },
+          "bookingId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numberPlate": {
+            "type": "string",
+            "nullable": true
+          },
+          "carTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dailyRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "weeklyRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "monthlyRate": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StateDto": {
+        "type": "object",
+        "properties": {
+          "stateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stateName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "add_on_master": {
+        "type": "object",
+        "properties": {
+          "addOnId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addOnName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "addonDailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rateValidUntil": {
+            "maxLength": 6,
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "booking_detail_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/booking_detail_table"
+            },
+            "nullable": true
+          },
+          "invoice_detail_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/invoice_detail_table"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "airport_master": {
+        "type": "object",
+        "properties": {
+          "airportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "airportCode": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "airportName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "city_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hub_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "state_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "city": {
+            "$ref": "#/components/schemas/city_master"
+          },
+          "hub": {
+            "$ref": "#/components/schemas/hub_master"
+          },
+          "state": {
+            "$ref": "#/components/schemas/state_master"
+          }
+        },
+        "additionalProperties": false
+      },
+      "booking_detail_table": {
+        "type": "object",
+        "properties": {
+          "bookingDetailId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "addonRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "addon_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "booking_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "addon": {
+            "$ref": "#/components/schemas/add_on_master"
+          },
+          "booking": {
+            "$ref": "#/components/schemas/booking_header_table"
+          }
+        },
+        "additionalProperties": false
+      },
+      "booking_header_table": {
+        "type": "object",
+        "properties": {
+          "bookingId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Bookcar": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "bookingDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "dailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "emailId": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "endDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "firstName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "monthlyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pin": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "state": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "weeklyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "car_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cartype_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "cust_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "booking_detail_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/booking_detail_table"
+            },
+            "nullable": true
+          },
+          "car": {
+            "$ref": "#/components/schemas/car_master"
+          },
+          "cartype": {
+            "$ref": "#/components/schemas/car_type_master"
+          },
+          "cust": {
+            "$ref": "#/components/schemas/customer_master"
+          },
+          "invoice_header_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/invoice_header_table"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "car_master": {
+        "type": "object",
+        "properties": {
+          "carId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Status": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "carName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "isAvailable": {
+            "type": "string",
+            "nullable": true
+          },
+          "maintenanceDueDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "mileage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "numberPlate": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "cartype_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "hub_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "booking_header_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/booking_header_table"
+            },
+            "nullable": true
+          },
+          "cartype": {
+            "$ref": "#/components/schemas/car_type_master"
+          },
+          "hub": {
+            "$ref": "#/components/schemas/hub_master"
+          },
+          "invoice_header_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/invoice_header_table"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "car_type_master": {
+        "type": "object",
+        "properties": {
+          "carTypeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "carTypeName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dailyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "imagePath": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "monthlyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "weeklyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "booking_header_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/booking_header_table"
+            },
+            "nullable": true
+          },
+          "car_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/car_master"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "city_master": {
+        "type": "object",
+        "properties": {
+          "cityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cityName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "state_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "airport_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/airport_master"
+            },
+            "nullable": true
+          },
+          "hub_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/hub_master"
+            },
+            "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/state_master"
+          }
+        },
+        "additionalProperties": false
+      },
+      "customer_master": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addressLine1": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "creditCardNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "creditCardType": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "drivingLicenseNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "idpNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "issuedByDl": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "passportIssueDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "passportIssuedBy": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "passportNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "passportValidFrom": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "passportValidThrough": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "phoneNumber": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "pincode": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "validThroughDl": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "booking_header_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/booking_header_table"
+            },
+            "nullable": true
+          },
+          "invoice_header_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/invoice_header_table"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "hub_master": {
+        "type": "object",
+        "properties": {
+          "hubId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contactNumber": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "hubAddressAndDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "hub_name": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "city_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "state_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "airport_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/airport_master"
+            },
+            "nullable": true
+          },
+          "car_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/car_master"
+            },
+            "nullable": true
+          },
+          "city": {
+            "$ref": "#/components/schemas/city_master"
+          },
+          "state": {
+            "$ref": "#/components/schemas/state_master"
+          }
+        },
+        "additionalProperties": false
+      },
+      "invoice_detail_table": {
+        "type": "object",
+        "properties": {
+          "invdtlId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "addOnAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "addon_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "invoice_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "addon": {
+            "$ref": "#/components/schemas/add_on_master"
+          },
+          "invoice": {
+            "$ref": "#/components/schemas/invoice_header_table"
+          }
+        },
+        "additionalProperties": false
+      },
+      "invoice_header_table": {
+        "type": "object",
+        "properties": {
+          "invoiceId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "customerDetails": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "handoverDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "rate": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "rentalAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "returnDate": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "totalAddOnAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "totalAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "booking_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "car_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cust_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "booking": {
+            "$ref": "#/components/schemas/booking_header_table"
+          },
+          "car": {
+            "$ref": "#/components/schemas/car_master"
+          },
+          "cust": {
+            "$ref": "#/components/schemas/customer_master"
+          },
+          "invoice_detail_tables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/invoice_detail_table"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "state_master": {
+        "type": "object",
+        "properties": {
+          "stateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stateName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "airport_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/airport_master"
+            },
+            "nullable": true
+          },
+          "city_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/city_master"
+            },
+            "nullable": true
+          },
+          "hub_masters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/hub_master"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer {token}'",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    { }
+  ]
+}

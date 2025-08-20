@@ -1,0 +1,175 @@
+spring-boot-starter-web
+
+spring-boot-starter-data-jpa
+
+spring-boot-starter-security
+
+spring-boot-starter-mail
+
+spring-boot-starter-aop
+
+spring-boot-starter-validation
+
+mysql-connector-j
+
+itextpdf (version 5.5.13.3)
+
+spring-boot-starter-test
+
+
+1. JWT Token Authentication Logic (based on your JWTAuthenticationFilter)
+In your project, authentication is handled using JWT tokens, without any session or refresh token.
+
+When a user logs in (/customer/login), the backend generates a JWT token using JwtUtil.
+
+This token is sent in the response and must be passed in the Authorization header for all subsequent requests.
+
+In your JWTAuthenticationFilter class:
+
+You intercept every request using OncePerRequestFilter.
+
+You extract the token from the header (Bearer <token>).
+
+You decode it using jwtUtil.getUsernameFromToken(...).
+
+If the token is valid, you create a UsernamePasswordAuthenticationToken and set it in the SecurityContextHolder.
+
+Why this logic is important:
+It makes all your APIs secure. No user can access /booking or /invoice endpoints without a valid JWT.
+
+
+
+2. Booking Logic with Date Conflict Check (implemented in your Service Layer)
+In the BookingService, you prevent double bookings of the same car by:
+Checking if the same car is already booked for overlapping pickup/drop dates.
+
+If such a booking exists, your service returns an error or skips saving.
+
+This logic protects data consistency and business logic — no two users can book the same car for the same date.
+
+Example flow:
+
+Customer selects Car ID 5 from 2025-08-20 to 2025-08-22.
+
+Before saving booking, you check if any existing booking overlaps using repository.
+
+If conflict, you reject; otherwise, save the booking.
+
+
+3. PDF Invoice Generation Logic (iText)
+Once the vehicle is returned, your backend:
+
+Gathers customer, vehicle, booking, and amount data.
+
+Passes it to your PDF generator service (using iText library).
+
+A formatted invoice PDF is created (e.g., with logo, tables, and totals).
+
+This PDF is stored or directly returned as application/pdf in API.
+
+Example endpoint:
+GET /invoice/{bookingId} returns the PDF invoice for the booking.
+
+
+4. Email Sending Logic (JavaMailSender)
+In your email service:
+
+On successful booking or return, an HTML email is triggered.
+
+Uses JavaMailSender from Spring Boot.
+
+Email body includes booking date, car name, amount, and optional invoice PDF as attachment.
+
+Example:
+When booking is made:
+
+bookingService.createBooking() calls emailService.sendBookingConfirmation(...)
+
+This logic adds professionalism and user communication flow to your app.
+
+
+5. DTO to Entity Mapping
+Your code uses DTOs like CustomerDto, BookingDto etc., which are converted to Entity classes via mapper classes such as CustomerMapper.
+
+Why this matters:
+
+It avoids exposing sensitive fields like password, IDs, or internal DB structure in the frontend.
+
+Keeps REST API clean, and prevents circular references in JSON.
+
+Example:
+Edit
+CustomerDto dto = CustomerMapper.toDTO(customer);
+Customer customer = CustomerMapper.toEntity(dto);
+
+
+
+6. AOP Logging (@Before, @After)
+You have added or are planning to add an @Aspect class where:
+
+@Before logs incoming request method and arguments.
+
+@AfterReturning logs successful completion of methods.
+
+This can be applied to:
+
+All controller methods
+
+All service methods
+Without modifying them individually (cross-cutting concern).
+
+Example log:
+[INFO] Entering BookingController.createBooking() with customerId: 2
+[INFO] Exiting BookingController.createBooking() - Booking created successfully
+
+
+7. Booking Cancellation Logic
+When a customer cancels a booking:
+
+You don’t delete the record from the database.
+
+Instead, you update the status to "Cancelled" (soft delete).
+
+You also free up the car for future bookings.
+
+Optionally, send an email to the user informing them of the cancellation.
+
+This maintains booking history and data integrity.
+
+
+8. Service Layer Testing using Mockito
+In your test cases:
+
+You mock the repository using @MockBean or Mockito.mock(...).
+
+You inject a real service and test only business logic.
+
+Example:
+when(customerRepo.findByEmail(...)).thenReturn(mockCustomer);
+Test case:
+Check if booking is rejected when there is a date clash.
+
+This proves you understand unit testing without hitting the real database.
+
+
+
+9. Docker Deployment (Planned or Implemented)
+You’ve written a Dockerfile like:
+
+dockerfile
+FROM openjdk:17
+COPY target/fleet.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+EXPOSE 8080
+This logic allows your backend to run in any system or cloud server with just one docker run command — no manual setup.
+
+
+10. Microservice Communication (via RestTemplate)
+You have used RestTemplate to invoke another Spring Boot API (or planning to call a .NET API later).
+
+Example:
+You call /invoice/details API from another internal microservice and consume the result in JSON.
+
+ResponseEntity<Invoice> response = restTemplate.getForEntity("http://localhost:8090/invoice/details", Invoice.class);
+This logic shows you are future-ready with microservice-based architecture.
+
