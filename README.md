@@ -1,77 +1,25 @@
-📌 Fleet Management System (FleeMan) – Smart Vehicle Rental & Management Platform! 🚗🚀
-Excited to showcase our project Fleet Management System, a full-stack web application designed to simplify and automate vehicle rental, booking, and management. Built with scalability, security, and real-world usability in mind.
-
-✨ Core Highlights:
-✅ Booking & Handover Module – Smooth vehicle booking, pickup, and return management.
-✅ Maintenance & Fuel Logs – Track repairs, servicing, and fuel consumption for cost optimization.
-✅ Customer & Staff Modules – Separate dashboards for admins, staff, and customers.
-✅ Robust Tech Stack – Java, Spring Boot 3, ReactJS, MySQL, JWT Authentication, Docker, REST APIs.
-✅ Feature-Rich – User authentication, vehicle assignment, insurance tracking, accident reporting, and billing.
-
-💡 Key Takeaways:
-🔹 Hands-on experience with Spring Boot, REST APIs, ReactJS, and MySQL.
-🔹 Implemented secure authentication, booking workflows, and billing automation.
-🔹 Explored microservice concepts & Dockerization for scalability.
-🔹 Enhanced teamwork, problem-solving, and Agile development skills.
-
-🙏 A big thank you to my teammates for their dedication and collaboration 👏
-🙏 Special thanks to our mentors for their constant guidance:
-Jayant Ponkshe sir, Nitin Vijaykar sir, Ketki Acharya mam, Pooja Magan mam, Dr. Nidhi Poddar mam
-
-Grateful to SM VITA College and CDAC for giving us this opportunity to build an industry-ready solution. This project has been a remarkable learning journey, and I’m excited for what’s next! 🚀
-
-🔗 GitHub Repo: https://lnkd.in/d87kRTWw
-
-Would you like me to also make a shorter LinkedIn-friendly version (2–3 crisp paragraphs) so it looks more engaging to recruiters?
-
-You said:
-# FLEEMAN
-# give me full readme for that project
-ChatGPT said:
-
-Perfect 👍 You want a full README.md for your Fleet Management System (FleeMan) project.
-I’ll create a detailed, professional GitHub-style README that covers overview, features, tech stack, architecture, setup instructions, database design, and contribution guidelines.
-
-Here’s the complete draft:
-
 🚗 FleeMan – Fleet Management System
 
 FleeMan is a full-stack fleet management web application designed to simplify vehicle rentals, bookings, and overall fleet operations. The system is built with scalability, security, and real-world usability in mind, providing separate modules for customers, staff, and administrators.
 
 📖 Table of Contents
-
 Overview
-
 Features
-
 Tech Stack
-
 System Architecture
-
 Database Design
-
 Installation & Setup
-
 Usage Flow
-
 API Endpoints
-
 Future Enhancements
-
 Contributors
-
 License
 
 🔎 Overview
-
 The FleeMan System streamlines the vehicle rental process by providing an easy-to-use platform where:
-
 Customers can search, book, and return vehicles.
-
 Staff can manage bookings, monitor vehicle conditions, and handle returns.
-
 Admins can track insurance, fuel, maintenance, and generate reports.
-
 This project was developed as part of an academic + industry-ready solution, following Agile methodologies.
 
 ✨ Features
@@ -87,33 +35,22 @@ This project was developed as part of an academic + industry-ready solution, fol
 🛠 Tech Stack
 
 Frontend:
-
 React.js
-
 TailwindCSS / Bootstrap (UI Styling)
-
 Axios (API Calls)
 
 Backend:
-
 Java 17
-
 Spring Boot 3 (REST APIs, Dependency Injection, Validation)
-
 Spring Security + JWT Authentication
 
 Database:
-
 MySQL (RDBMS for structured data)
-
 Hibernate / JPA
 
 Other Tools:
-
 Docker (Containerization)
-
 Postman (API Testing)
-
 Git/GitHub (Version Control)
 
 🏗 System Architecture
